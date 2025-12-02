@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import AppWalletProvider from "../components/WalletProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Build anything from a chat",
-  description: "Turn chats into apps. Prompt. Ship. Repeat.",
+  title: "Solana Wallet",
+  description: "A comprehensive Solana wallet for managing your SOL and tokens",
 };
 
 export default function RootLayout({
@@ -27,8 +28,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <AppWalletProvider>
+          {children}
+        </AppWalletProvider>
       </body>
     </html>
   );
 }
+
+
+
